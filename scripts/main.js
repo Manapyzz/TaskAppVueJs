@@ -21,6 +21,11 @@
 				this.tasks.push({ id: lastId + 1, title: this.taskTitle, done: false })
 				this.taskTitle = "";
 				this.refreshList();
+			},
+			removeTask(task) {
+				var pos = this.tasks.indexOf(task);
+				this.tasks.splice(pos, 1);
+				this.refreshList();
 			}
 		}
 	});
