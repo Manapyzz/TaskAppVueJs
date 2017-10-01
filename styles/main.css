@@ -1,0 +1,9 @@
+.link-delete {
+	color: crimson;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.link-delete:hover {
+	color: darkred;
+}
