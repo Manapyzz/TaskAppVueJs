@@ -34,7 +34,7 @@
 
     <h3>Liste des tâches</h3>
 
-    <p>Il reste <strong>{{ getUndoneTask() }} tâches</strong> sur <strong>{{ tasks.length }}</strong> à effectuer.</p>
+    <p>Il reste <strong>{{ getUndoneTask() | pluralize('tâche') }}</strong> sur <strong>{{ tasks.length }}</strong> à effectuer.</p>
     
     <ul class="collection">
         <li v-for="task in tasks" class="collection-item">

@@ -30,6 +30,12 @@
 			getUndoneTask() {
 				return this.tasks.filter((task) => !task.done).length;
 			}
+		},
+
+		filters: {
+			pluralize: function(value, word) {
+				return value > 1 ? value + ' ' + word + 's' : value  + ' ' + word;
+			}
 		}
 	});
 }
