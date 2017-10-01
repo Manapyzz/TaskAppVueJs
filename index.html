@@ -23,11 +23,11 @@
     <fieldset>
         <form class="row">
             <div class="input-field col m6 offset-m3">
-                <input id="taskTitle" type="text">
+                <input id="taskTitle" type="text" v-model="taskTitle">
                 <label for="taskTitle">Intitulé de la tâche</label>
             </div>
             <div class="col m4 offset-m5">
-                <button type="submit" class="waves-effect waves-light btn">Ajouter</button>
+                <button type="submit" class="waves-effect waves-light btn" @click.prevent="addTask()">Ajouter</button>
             </div>
         </form>
     </fieldset>
