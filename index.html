@@ -37,20 +37,13 @@
     <p>Il reste <strong>1 tâche</strong> sur <strong>2</strong> à effectuer.</p>
     
     <ul class="collection">
-        <li class="collection-item">
-            <input type="checkbox" id="t_1" checked>
-            <label for="t_1">Tâche n°1</label>
-            <a href="#" class="link-delete" title="Supprimer cette tâche">
+        <li v-for="task in tasks" class="collection-item">
+            <input type="checkbox" v-bind:id="'t_' + task.id" v-model="task.done">
+            <label v-bind:for="'t_' + task.id">{{ task.title }}</label>
+            <a href="#" v-on:click="removeTask(task)" class="link-delete" title="Supprimer cette tâche">
                 <i class="small material-icons">delete_forever</i>
             </a>
-        </li>
-        <li class="collection-item">
-            <input type="checkbox" id="t_2">
-            <label for="t_2">Tâche n°2</label>
-            <a href="#" class="link-delete" title="Supprimer cette tâche">
-                <i class="small material-icons">delete_forever</i>
-            </a>
-        </li>
+        </li> 
     </ul>
 
 </main><!-- Fin de l'app Vue.js -->
