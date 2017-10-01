@@ -26,6 +26,9 @@
 				var pos = this.tasks.indexOf(task);
 				this.tasks.splice(pos, 1);
 				this.refreshList();
+			},
+			getUndoneTask() {
+				return this.tasks.filter((task) => !task.done).length;
 			}
 		}
 	});
