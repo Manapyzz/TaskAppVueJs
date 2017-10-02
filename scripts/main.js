@@ -1,4 +1,27 @@
 {
+
+	const TaskList = {
+		props: [ 'task' ],
+		template: 
+			`
+				<li class="collection-item">
+	            	<input type="checkbox" v-bind:id="'t_' + task.id" v-model="task.done" v-on:change="refreshList()">
+	            	<label v-bind:for="'t_' + task.id">{{ task.title }}</label>
+	            	<a href="#" v-on:click="removeTask(task)" class="link-delete" title="Supprimer cette tâche">
+	                	<i class="small material-icons">delete_forever</i>
+            		</a>
+    			</li> 
+			`,
+		methods: {
+			removeTask : function(task) {
+				this.$emit('remove-task', task)
+			},
+			refreshList : function() {
+				this.$emit('refresh-list')
+			}
+		}
+	}
+
 	let vm = new Vue({
 		el : '#app',
 		data: {
@@ -36,6 +59,10 @@
 			pluralize: function(value, word) {
 				return value > 1 ? value + ' ' + word + 's' : value  + ' ' + word;
 			}
+		},
+
+		components: {
+			'task-list' : TaskList
 		}
 	});
 }

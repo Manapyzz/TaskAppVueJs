@@ -37,13 +37,7 @@
     <p>Il reste <strong>{{ getUndoneTask() | pluralize('tâche') }}</strong> sur <strong>{{ tasks.length }}</strong> à effectuer.</p>
     
     <ul class="collection">
-        <li v-for="task in tasks" class="collection-item">
-            <input type="checkbox" v-bind:id="'t_' + task.id" v-model="task.done" v-on:change="refreshList()">
-            <label v-bind:for="'t_' + task.id">{{ task.title }}</label>
-            <a href="#" v-on:click="removeTask(task)" class="link-delete" title="Supprimer cette tâche">
-                <i class="small material-icons">delete_forever</i>
-            </a>
-        </li> 
+        <task-list v-for="task in tasks" :task="task" @remove-task="removeTask" @refresh-list="refreshList"></task>
     </ul>
 
 </main><!-- Fin de l'app Vue.js -->
